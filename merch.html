@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>deu_trilece | Merch</title>
+  <meta
+    name="description"
+    content="deu_trilece merch sayfası. Charm ürününü yakından inceleyip ön sipariş için Shopier sayfasına geçebilirsiniz."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="masthead">
+    <div class="container masthead-inner">
+      <a class="site-brand" href="index.html">
+        <span class="brand-seal">dt</span>
+        <span class="brand-text">
+          <strong>deu_trilece</strong>
+          <small>Topluluğun merch vitrini</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Merch Menüsü">
+        <a href="index.html">Anasayfa</a>
+        <a href="beklerken-yapilacaklar.html">Oyunlar</a>
+        <a href="archive.html">Arşiv</a>
+        <a href="merch.html">Merch</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="merch-page">
+    <section class="merch-hero">
+      <div class="container merch-hero-grid">
+        <div class="merch-hero-copy">
+          <p class="hero-kicker">Merch Drop 01</p>
+          <h1>Charm artık vitrinde.</h1>
+          <p>
+            Küçük ama karakterli. Farklı açılardan incele, detaylara yaklaş ve
+            kararını keyifle ver.
+          </p>
+          <div class="merch-hero-actions">
+            <a
+              class="hero-button merch-primary-button"
+              href="https://www.shopier.com/yagmur_in_the_studio/46063569"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ön siparişe git
+            </a>
+            <a class="merch-secondary-link" href="#merchShowcase">Detaylı incele</a>
+          </div>
+
+          <div class="merch-promise-row" aria-label="Ürün avantajları">
+            <article class="merch-promise-pill">
+              <strong>2 açı</strong>
+              <span>Ürünü farklı karelerden incele</span>
+            </article>
+            <article class="merch-promise-pill">
+              <strong>Zoom</strong>
+              <span>Detaylara yaklaşmak için görselin üstünde gez</span>
+            </article>
+            <article class="merch-promise-pill">
+              <strong>Hemen yönlen</strong>
+              <span>Hazır hissettiğinde Shopier sayfasına geç</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="merch-preview-card merch-spotlight-card">
+          <div class="merch-spotlight-head">
+            <span class="side-label">One to watch</span>
+            <strong>deu_trilece charm</strong>
+          </div>
+
+          <figure class="merch-spotlight-image">
+            <img
+              src="merch_photo/charm_1.jpeg"
+              alt="deu_trilece charm ürününün birinci açıdan çekilmiş fotoğrafı"
+            >
+          </figure>
+
+          <div class="merch-spotlight-copy">
+            <h3>Sade, net ve tam karar anına göre</h3>
+            <p>
+              Ürün önce göze çarpsın, detaylar sonra gelsin. Tam da böyle bir
+              vitrin istedik.
+            </p>
+          </div>
+
+          <div class="merch-mini-stats" aria-label="Hızlı bilgiler">
+            <span>İki farklı kare</span>
+            <span>Yakından inceleme</span>
+            <span>Tek tıkla yönlendirme</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="merch-showcase" id="merchShowcase">
+      <div class="container merch-detail-shell">
+        <div class="section-heading merch-heading-row">
+          <div>
+            <h2>Yakından bak, içine sinsin</h2>
+            <p>
+              Ana fotoğrafın üstünde gezerek detaylara yaklaş, alttaki karelerden
+              görünümü değiştir. Tıklarsan tam ekranda da açılır.
+            </p>
+          </div>
+          <a
+            class="hero-button merch-order-button merch-order-button-top"
+            href="https://www.shopier.com/yagmur_in_the_studio/46063569"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Shopier sayfasına git
+          </a>
+        </div>
+
+        <div class="merch-detail-grid">
+          <section class="merch-viewer-card" aria-labelledby="merchViewerTitle">
+            <div class="merch-viewer-head">
+              <div>
+                <span class="side-label">Detaylı görünüm</span>
+                <h3 id="merchViewerTitle">Ürün fotoğrafları</h3>
+              </div>
+              <p class="merch-zoom-note">Yaklaşmak için görselin üstünde gez, tam ekran için fotoğrafa tıkla.</p>
+            </div>
+
+            <div class="merch-zoom-stage" id="merchZoomStage">
+              <img
+                id="merchMainImage"
+                src="merch_photo/charm_1.jpeg"
+                alt="deu_trilece charm ürününün birinci açıdan çekilmiş fotoğrafı"
+                data-lightboxable
+              >
+            </div>
+
+            <div class="merch-thumb-grid" role="list" aria-label="Charm fotoğraf seçenekleri">
+              <button
+                class="merch-thumb is-active"
+                type="button"
+                data-merch-thumb
+                data-image-src="merch_photo/charm_1.jpeg"
+                data-image-alt="deu_trilece charm ürününün birinci açıdan çekilmiş fotoğrafı"
+                aria-label="Birinci fotoğrafı göster"
+              >
+                <img src="merch_photo/charm_1.jpeg" alt="Charm birinci açı önizleme">
+                <span aria-hidden="true"></span>
+              </button>
+
+              <button
+                class="merch-thumb"
+                type="button"
+                data-merch-thumb
+                data-image-src="merch_photo/charm_2.jpeg"
+                data-image-alt="deu_trilece charm ürününün ikinci açıdan çekilmiş fotoğrafı"
+                aria-label="İkinci fotoğrafı göster"
+              >
+                <img src="merch_photo/charm_2.jpeg" alt="Charm ikinci açı önizleme">
+                <span aria-hidden="true"></span>
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="image-lightbox" id="imageLightbox">
+    <button class="image-lightbox-close" id="imageLightboxClose" type="button" aria-label="Kapat">&times;</button>
+    <img id="imageLightboxImg" alt="">
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>

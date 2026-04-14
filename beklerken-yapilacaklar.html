@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beklerken Yapilacaklar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="masthead">
+    <div class="container masthead-inner">
+      <a class="site-brand" href="index.html"><span class="brand-seal">dt</span><span class="brand-text"><strong>deu_trilece</strong><small>Beklerken yapilacaklar</small></span></a>
+      <nav class="main-nav"><a href="index.html">Anasayfa</a><a href="archive.html">Arsiv</a><a href="bugun-trileceden-ne-ogrendim.html">Ogrendiklerimiz</a><a href="merch.html">Merch</a></nav>
+    </div>
+  </div>
+
+  <main class="detail-page">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Beklerken Yapilacaklar</h2>
+        <p>Trilece yeniden cikana kadar topluluktan gelen cevaplar ve mini oyunlarla oyalanma rehberi.</p>
+      </div>
+
+      <section class="leaderboard-intro">
+        <div class="leaderboard-intro-copy">
+          <span class="side-label">Aylik Kapisma</span>
+          <h3>Her oyunda ayin birincisi bir trilece kazansin</h3>
+          <p>Oyuna girmeden once adini yaz. Her oyunun aylik tablosunda en yuksek skoru alan kisi odul icin zirveye cikar.</p>
+        </div>
+        <form class="leaderboard-player-form" id="leaderboardPlayerForm">
+          <label class="wait-label" for="leaderboardPlayerName">Oyuncu adi</label>
+          <div class="wait-form-row">
+            <input id="leaderboardPlayerName" class="wait-input" type="text" maxlength="24" placeholder="orn. karamelavcisi">
+            <button class="hero-button game-button" type="submit">Kaydet</button>
+          </div>
+          <p class="leaderboard-player-status" id="leaderboardPlayerStatus">Aktif oyuncu henuz secilmedi.</p>
+        </form>
+      </section>
+
+      <div class="wait-grid">
+        <section class="wait-panel">
+          <h3>Kullanicilardan Gelen Cevaplar</h3>
+          <form class="wait-form" id="waitReplyForm">
+            <label class="wait-label" for="waitReplyInput">Sen beklerken ne yapiyorsun?</label>
+            <div class="wait-form-row">
+              <input id="waitReplyInput" class="wait-input" type="text" maxlength="140" placeholder="Cevabini yaz...">
+              <button class="hero-button game-button" type="submit">Gonder</button>
+            </div>
+          </form>
+          <div class="wait-list" id="waitReplyList"></div>
+        </section>
+
+        <section class="wait-panel game-panel">
+          <div class="game-head">
+            <div>
+              <h3>Mini Games</h3>
+              <p>Secilen favoriler burada: kutuphane yer kapmaca ile karamel dengesi vitrine cikti, kedi ise bonus turda bekliyor.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="wait-panel game-panel">
+          <div class="game-head">
+            <div>
+              <h3>Kutuphane Yer Kapmaca</h3>
+              <p>Alana tiklayip ok tuslariyla yuru. Bos masadan bos masaya gec, digerleri dolmadan zinciri bozma.</p>
+            </div>
+            <div class="game-score">
+              <span>Skor</span>
+              <strong id="seatRushScore">0</strong>
+              <small id="seatRushTime">180 sn</small>
+            </div>
+          </div>
+
+          <div class="game-wrap">
+            <canvas id="seatRushGame" width="420" height="300" aria-label="Kutuphane yer kapmaca oyunu" tabindex="0"></canvas>
+          </div>
+
+          <div class="game-help">
+            <span>180 saniye icinde en fazla masa degistirmeye calis. Alana tikla, ok tuslariyla yuru, boslukla otur veya kalk.</span>
+            <button class="hero-button game-button" id="seatRushRestart" type="button">Oyunu Sifirla</button>
+          </div>
+
+          <section class="leaderboard-card" data-leaderboard-game="seat-rush">
+            <div class="leaderboard-card-head">
+              <div>
+                <span class="side-label">Aylik Liderlik</span>
+                <h4>Kutuphane Yer Kapmaca Siralamasi</h4>
+              </div>
+              <p>Bu ay en cok masa kapan kisi odul listesinde one cikar.</p>
+            </div>
+            <ol class="leaderboard-list" id="seatRushLeaderboard"></ol>
+          </section>
+        </section>
+
+        <section class="wait-panel game-panel">
+          <div class="game-head">
+            <div>
+              <h3>Karamel Dengesi</h3>
+              <p>Mouse'unu kayan slider'in ustunde tut. Accuracy dustukce denge bozulur, kacirirsan karamel gider.</p>
+            </div>
+            <div class="game-score">
+              <span>Accuracy</span>
+              <strong id="caramelBalanceScore">0</strong>
+            </div>
+          </div>
+
+          <div class="game-wrap">
+            <canvas id="caramelBalanceGame" width="420" height="220" aria-label="Karamel dengesi oyunu" tabindex="0"></canvas>
+          </div>
+
+          <div class="game-help">
+            <span>Alana tikla, oyun baslasin. Mouse'unu hareket eden slider'in ustunde tutmaya calis.</span>
+            <button class="hero-button game-button" id="caramelBalanceRestart" type="button">Yeniden Baslat</button>
+          </div>
+
+          <section class="leaderboard-card" data-leaderboard-game="caramel-balance">
+            <div class="leaderboard-card-head">
+              <div>
+                <span class="side-label">Aylik Liderlik</span>
+                <h4>Karamel Dengesi Siralamasi</h4>
+              </div>
+              <p>En uzun sure dengeyi koruyan oyuncu bu ayin karamel ustasi olur.</p>
+            </div>
+            <ol class="leaderboard-list" id="caramelBalanceLeaderboard"></ol>
+          </section>
+        </section>
+
+        <section class="wait-panel game-panel">
+          <div class="game-head">
+            <div>
+              <h3>Kediyle Trilece</h3>
+              <p>Kediyle trilece topla. Duvarlara ve kendi kuyruguna carpma.</p>
+            </div>
+            <div class="game-score">
+              <span>Skor</span>
+              <strong id="catSnakeScore">0</strong>
+            </div>
+          </div>
+
+          <div class="game-wrap">
+            <canvas id="catSnakeGame" width="420" height="420" aria-label="Kedi yilan oyunu" tabindex="0"></canvas>
+          </div>
+
+          <div class="game-help">
+            <span>Yon tuslari ile oyna.</span>
+            <button class="hero-button game-button" id="catSnakeRestart" type="button">Yeniden Baslat</button>
+          </div>
+
+          <section class="leaderboard-card" data-leaderboard-game="cat-snake">
+            <div class="leaderboard-card-head">
+              <div>
+                <span class="side-label">Aylik Liderlik</span>
+                <h4>Kediyle Trilece Siralamasi</h4>
+              </div>
+              <p>En fazla trilece toplayan oyuncu ay sonunda odul listesinin basina yazar.</p>
+            </div>
+            <ol class="leaderboard-list" id="catSnakeLeaderboard"></ol>
+          </section>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
