@@ -513,7 +513,7 @@ function initSeatRushGame() {
     });
   }
 
-  function makeWalker(targetIndex) {
+  function makeWalker(targetIndex, durationRange = { min: 1.4, max: 2.1 }) {
     const edge = Math.floor(Math.random() * 4);
     const points = [
       { x: randomBetween(24, canvas.width - 24), y: -18 },
@@ -526,9 +526,20 @@ function initSeatRushGame() {
       fromX: points[edge].x,
       fromY: points[edge].y,
       progress: 0,
-      duration: randomBetween(1.4, 2.1),
+      duration: randomBetween(durationRange.min, durationRange.max),
       targetIndex
     };
+  }
+
+  function callNpcToDesk(index, durationRange) {
+    const desk = desks[index];
+
+    if (!desk || desk.state !== "open" || desk.occupiedByPlayer || desk.incoming) {
+      return false;
+    }
+
+    desk.incoming = makeWalker(index, durationRange);
+    return true;
   }
 
   function sitAtDesk(index) {
@@ -557,15 +568,19 @@ function initSeatRushGame() {
       return;
     }
 
-    desks[seatedDeskIndex].playerCooldown = 4;
-    desks[seatedDeskIndex].occupiedByPlayer = false;
+    const vacatedDeskIndex = seatedDeskIndex;
+    desks[vacatedDeskIndex].playerCooldown = 4;
+    desks[vacatedDeskIndex].occupiedByPlayer = false;
     seatedDeskIndex = -1;
+
+    // Bosalan koltuk rakipler tarafindan hizla hedeflensin.
+    callNpcToDesk(vacatedDeskIndex, { min: 0.55, max: 0.95 });
   }
 
   function spawnOccupant() {
     const available = desks
       .map((desk, index) => ({ desk, index }))
-      .filter(({ desk }) => desk.state === "open" && !desk.occupiedByPlayer);
+      .filter(({ desk }) => desk.state === "open" && !desk.occupiedByPlayer && !desk.incoming);
 
     if (!available.length) {
       return;
@@ -574,7 +589,7 @@ function initSeatRushGame() {
     const cooldownSeats = available.filter(({ desk }) => desk.playerCooldown > 0);
     const pool = cooldownSeats.length ? cooldownSeats : available;
     const choice = pool[Math.floor(Math.random() * pool.length)];
-    choice.desk.incoming = makeWalker(choice.index);
+    callNpcToDesk(choice.index);
   }
 
   function updateIncoming(dt) {
