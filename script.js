@@ -573,8 +573,8 @@ function initSeatRushGame() {
     desks[vacatedDeskIndex].occupiedByPlayer = false;
     seatedDeskIndex = -1;
 
-    // Bosalan koltuk rakipler tarafindan hizla hedeflensin.
-    callNpcToDesk(vacatedDeskIndex, { min: 0.55, max: 0.95 });
+    // Bosalan koltuk hedeflensin ama ani hissettirmesin.
+    callNpcToDesk(vacatedDeskIndex, { min: 1.05, max: 1.55 });
   }
 
   function spawnOccupant() {
