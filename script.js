@@ -263,7 +263,7 @@ function initCatSnakeGame() {
   }
 
   const ctx = canvas.getContext("2d");
-  const gridSize = 21;
+  const gridSize = 17;
   const tileSize = canvas.width / gridSize;
   let snake;
   let direction;
@@ -285,10 +285,11 @@ function initCatSnakeGame() {
   }
 
   function resetGame() {
+    canvas.focus();
     snake = [
-      { x: 10, y: 10 },
-      { x: 9, y: 10 },
-      { x: 8, y: 10 }
+      { x: 8, y: 8 },
+      { x: 7, y: 8 },
+      { x: 6, y: 8 }
     ];
     direction = { x: 1, y: 0 };
     nextDirection = { x: 1, y: 0 };
@@ -460,8 +461,8 @@ function initSeatRushGame() {
   const ctx = canvas.getContext("2d");
   const desks = [];
   const keys = { ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false };
-  const roundDuration = 180;
-  const seatRadius = 34;
+  const roundDuration = 90;
+  const seatRadius = 46;
   let player;
   let score = 0;
   let remaining = roundDuration;
@@ -627,7 +628,7 @@ function initSeatRushGame() {
     let bestDistance = Infinity;
 
     desks.forEach((desk, index) => {
-      if (desk.state !== "open" || desk.occupiedByPlayer || desk.playerCooldown > 0) {
+      if (desk.state !== "open" || desk.occupiedByPlayer) {
         return;
       }
 
